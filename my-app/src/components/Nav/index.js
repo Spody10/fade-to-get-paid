@@ -23,8 +23,8 @@ function Nav() {
     return (
         <header>
             <h2>
-                <a href="/">
-                    <span role="img" aria-label="roosty">
+                <a data-testid='link' href="/">
+                    <span role="img" aria-label="roosty">Roosty
                         <img src={roostyImage} className="my-2" style={{ width: "5%" }} alt =""></img>
                     </span> 
                 </a>
@@ -32,7 +32,7 @@ function Nav() {
             <nav>
                 <ul className="flex-row">
                     <li className="mx-2">
-                        <a href="#about">
+                        <a data-testid='about' href="#about">
                             About McNoosty
                         </a>
                     </li>

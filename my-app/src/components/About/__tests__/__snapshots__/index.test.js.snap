@@ -8,7 +8,7 @@ exports[`About component matches snapshot DOM node structure 1`] = `
     <h1
       id="about"
     >
-      Who am I? The sports bettor you need to fade!
+      Who am I? Engineer of the Fade Train!
     </h1>
     <img
       alt="cover"
