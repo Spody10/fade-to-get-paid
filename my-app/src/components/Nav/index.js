@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import roostyImage from "../../assets/roosty.jpg";
 import { capitalizeFirstLetter } from "../../utils/helpers";
 
 function Nav(props) {
+  
     const { 
         categories = [],
         setCurrentCategory,
         currentCategory,
     } = props;
     
+    useEffect(() => {
+        document.title = capitalizeFirstLetter(currentCategory.name);
+      }, [currentCategory]);
 
     // function categorySelected(name) {
     //     console.log(`${name} clicked`)
@@ -36,7 +40,7 @@ function Nav(props) {
                     </li> */}
                     {categories.map((category) => (
                     <li 
-                        className={`mx-1 ${
+                        className={`mx-1 flex-row ${
                             currentCategory.name === category.name && 'navActive'
                         }`} key={category.name}
                     >
