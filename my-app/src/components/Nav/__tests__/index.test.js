@@ -25,7 +25,6 @@ describe('links are visable', () => {
         const { getByTestId } = render(<Nav />);
         
         //Assert 
-        expect(getByTestId('link')).toHaveTextContent('Roosty');
         expect(getByTestId('about')).toHaveTextContent('About McNoosty')
 
     });

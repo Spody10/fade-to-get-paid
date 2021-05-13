@@ -118,7 +118,7 @@ button[disabled] {
 }
 
 img {
-  max-width: 100%;
+  max-width: 50%;
 }
 
 span[role="img"] {
@@ -172,6 +172,7 @@ textarea {
 .flex-row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .space-between {

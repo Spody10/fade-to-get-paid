@@ -1,51 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import roostyImage from "../../assets/roosty.jpg";
+import { capitalizeFirstLetter } from "../../utils/helpers";
 
-function Nav() {
-    const categories = [
-        {
-            name: "Sports",
-            description: "Sports available to pick"
-        },
-        {
-            name: "Current Picks",
-            description: "Current picks from the WOAT",
-        },
-        {
-            name: "Previous Picks",
-            description: "God he is awful",
-        },
+function Nav(props) {
+    const { 
+        categories = [],
+        setCurrentCategory,
+        currentCategory,
+    } = props;
+    
 
-    ]
-    function categorySelected(name) {
-        console.log(`${name} clicked`)
-    }
+    // function categorySelected(name) {
+    //     console.log(`${name} clicked`)
+    // }
+
     return (
-        <header>
+        <header className="flex-row px-1">
             <h2>
                 <a data-testid='link' href="/">
-                    <span role="img" aria-label="roosty">Roosty
-                        <img src={roostyImage} className="my-2" style={{ width: "5%" }} alt =""></img>
+                    <span role="img" aria-label="roosty">
+                        <img src={roostyImage} className="my-2" style={{ width: "10%" }} alt =""></img>
+                       
                     </span> 
                 </a>
             </h2>
             <nav>
                 <ul className="flex-row">
-                    <li className="mx-2">
+                    {/* <li className="mx-2">
                         <a data-testid='about' href="#about">
                             About McNoosty
                         </a>
                     </li>
                     <li>
                         <span>Contact</span>
-                    </li>
+                    </li> */}
                     {categories.map((category) => (
                     <li 
-                        className="mx-1"
-                        key={category.name}
+                        className={`mx-1 ${
+                            currentCategory.name === category.name && 'navActive'
+                        }`} key={category.name}
                     >
-                        <span onClick={() => categorySelected(category.name)} >
-                            {category.name}
+                        <span onClick={() => {setCurrentCategory(category)}} 
+                        >
+                            {capitalizeFirstLetter(category.name)}
                         </span>
                     </li>
                     ))}
